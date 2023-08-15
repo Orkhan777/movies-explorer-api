@@ -3,14 +3,14 @@ const { celebrate, Joi } = require('celebrate');
 const regUrl = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/;
 const regEn = /^[a-zA-Z\s-]+$/;
 
-const loginValid = celebrate({
+const loginValidation = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required().min(8),
   }),
 });
 
-const checkinValid = celebrate({
+const checkinValidation = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required().min(8),
@@ -18,14 +18,14 @@ const checkinValid = celebrate({
   }),
 });
 
-const userUpdateValid = celebrate({
+const userUpdateValidation = celebrate({
   body: Joi.object().keys({
     email: Joi.string().email(),
     name: Joi.string().min(2).max(30),
   }),
 });
 
-const movieValid = celebrate({
+const movieValidation = celebrate({
   body: Joi.object().keys({
     country: Joi.string().required(),
     director: Joi.string().required(),
@@ -41,16 +41,16 @@ const movieValid = celebrate({
   }),
 });
 
-const movieIdValid = celebrate({
+const movieIdValidation = celebrate({
   params: Joi.object().keys({
     movieId: Joi.string().required().hex().length(24),
   }),
 });
 
 module.exports = {
-  loginValid,
-  checkinValid,
-  movieValid,
-  movieIdValid,
-  userUpdateValid,
+  loginValidation,
+  checkinValidation,
+  movieValidation,
+  movieIdValidation,
+  userUpdateValidation,
 };

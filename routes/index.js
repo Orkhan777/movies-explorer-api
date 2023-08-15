@@ -3,15 +3,15 @@ const usersRouter = require('./users');
 const moviesRouter = require('./movies');
 const { auth } = require('../middlewares/auth');
 const { createUser, login, getSignout } = require('../controllers/users');
-const { loginValid, checkinValid } = require('../middlewares/validations');
+const { loginValidation, checkinValidation } = require('../middlewares/validations');
 const ErrorNotFound = require('../errors/ErrorNotFound');
 const { NOTFOUND_PAGE } = require('../errors/ErrorNotFound');
 
 const routers = express();
 
-routers.post('/signup', checkinValid, createUser);
+routers.post('/signup', checkinValidation, createUser);
 
-routers.post('/signin', loginValid, login);
+routers.post('/signin', loginValidation, login);
 
 routers.use(auth);
 
