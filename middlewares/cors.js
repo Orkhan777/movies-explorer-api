@@ -1,6 +1,6 @@
 const corsOptions = {
   origin: [
-    'movies-project.nomoreparties.co',
+    'http://movies-project.nomoreparties.co',
     'http://localhost:3000',
     'localhost:3000',
   ],
