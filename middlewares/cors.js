@@ -1,8 +1,8 @@
 const corsOptions = {
   origin: [
-    'http://movies-project.nomoreparties.co',
+    'https://movies-project.nomoreparties.co',
     'http://localhost:3000',
-    'localhost:3000',
+    'http://localhost:3001',
   ],
   methods: ['GET', 'POST', 'PATCH', 'DELETE'],
   credentials: true,
