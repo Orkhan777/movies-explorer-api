@@ -54,6 +54,7 @@ const login = (req, res, next) => {
               httpOnly: true,
             })
             .send(user);
+          next(); // Сбрасываем ошибку при успешной аутентификации
         } else {
           next(new ErrorAuth('Ошибка авторизации'));
         }
@@ -78,7 +79,7 @@ const getSignout = (req, res, next) => {
       httpOnly: true,
     })
     .send({ message: 'cookie cleared' });
-  next();
+  next(); // Сбрасываем ошибку при выходе пользователя
 };
 
 const getUser = (req, res, next) => {
